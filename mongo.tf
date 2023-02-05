@@ -14,6 +14,7 @@ resource "docker_image" "mongo_image" {
 resource "docker_container" "mongo_container" {
   image = docker_image.mongo_image.image_id
   name  = "mongo"
+  hostname = "mongo"
   restart = "always"
   networks_advanced {
     name = docker_network.network.name

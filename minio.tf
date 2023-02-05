@@ -10,6 +10,7 @@ resource "docker_image" "minio_image" {
 resource "docker_container" "minio_container" {
   image = docker_image.minio_image.image_id
   name  = "minio"
+  hostname = "minio"
   restart = "always"
   networks_advanced {
     name = docker_network.network.name
