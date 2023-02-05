@@ -28,8 +28,8 @@ resource "docker_container" "minio_container" {
     source = "minio"
   }
   env = [
-   "MINIO_ROOT_USER=username",
-   "MINIO_ROOT_PASSWORD=password"
+   "MINIO_ROOT_USER=minio",
+   "MINIO_ROOT_PASSWORD=${var.root_password}"
   ]
   command = ["server", "/data", "--console-address", ":9090"]
   remove_volumes = false

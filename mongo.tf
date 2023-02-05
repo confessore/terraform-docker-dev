@@ -33,8 +33,8 @@ resource "docker_container" "mongo_container" {
     source = "mongo-configdb"
   }
   env = [
-    "MONGO_INITDB_ROOT_USERNAME=username",
-    "MONGO_INITDB_ROOT_PASSWORD=password"
+    "MONGO_INITDB_ROOT_USERNAME=mongo",
+    "MONGO_INITDB_ROOT_PASSWORD=${var.root_password}"
   ]
   remove_volumes = false
 }
